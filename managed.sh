@@ -21,4 +21,4 @@ else
     echo "Package python3-colorma not found in the repositories."
 fi
 
-python3 <(curl -Ls https://raw.githubusercontent.com/iPmartNetwork/FredomTunnel/main/haproxy.py --ipv4)
+python3 <(curl -Ls https://raw.githubusercontent.com/iPmartNetwork/FredonTunnel/main/FreedomTunnel.py --ipv4)
