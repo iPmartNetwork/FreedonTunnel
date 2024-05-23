@@ -113,7 +113,7 @@ def main_menu():
             display_logo()
             border = "\033[4;35m" + "="*70 + "+\033[0m"
             content = "\033[36m       \033[92mMain Menu\033[36m            "
-            footer = " \035      Join iPmartNetwork Telegram \033[33m@iPmartNetwork_gp\033[0m "
+            footer = " \035        iPmartNetwork Telegram \033[33m@iPmartNetwork_gp\033[0m "
 
             border_length = len(border) - 2
             centered_content = content.center(border_length)
