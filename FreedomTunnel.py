@@ -1,6 +1,7 @@
 #
 # Haproxy loadbalance Tunnel Configuration Script
 # Author: github.com/iPmartNetwork
+#
 # This script is designed to simplify the installation and configuration of Haprxy.
 #
 # Supported operating systems: Ubuntu 20, Debian 12
@@ -68,29 +69,31 @@ def display_status():
         status = "\033[92m\u2713 Active\033[0m"
     else:
         status = "\033[91m\u2718 Inactive\033[0m"
-    print("\033[93m            ╔════════════════════════════════════╗\033[0m")
-    print("\033[93m            ║           Haproxy Status           ║\033[0m")
-    print("\033[93m            ╠════════════════════════════════════╣\033[0m")
-    print("           \033[93m  \033[0m    Service:     |    ", status,  "\033[93m  \033[0m")
-    print(" \033[93m           ╚════════════════════════════════════╝\033[0m")
+    print("\033[36m            ╔════════════════════════════════════╗\033[0m")
+    print("\033[36m            ║           Freedom Status           ║\033[0m")
+    print("\033[36m            ╠════════════════════════════════════╣\033[0m")
+    print("           \033[36m  \033[0m    Service:     |    ", status,  "\033[36m  \033[0m")
+    print(" \033[36m           ╚════════════════════════════════════╝\033[0m")
 
     
 def display_logo2():
     colorama.init()
     logo2 = colorama.Style.BRIGHT + colorama.Fore.GREEN + """
-     _____       _     _      
-    / ____|     (_)   | |     
-   | |  __ _   _ _  __| | ___ 
-   | | |_ | | | | |/ _` |/ _ \\
-   | |__| | |_| | | (_| |  __/
-    \_____|\__,_|_|\__,_|\___|
+____________________________________________________________________________________
+        ____                             _     _                                     
+    ,   /    )                           /|   /                                  /   
+-------/____/---_--_----__---)__--_/_---/-| -/-----__--_/_-----------__---)__---/-__-
+  /   /        / /  ) /   ) /   ) /    /  | /    /___) /   | /| /  /   ) /   ) /(    
+_/___/________/_/__/_(___(_/_____(_ __/___|/____(___ _(_ __|/_|/__(___/_/_____/___\__
+
+""
 """ + colorama.Style.RESET_ALL
     print(logo2)
     
 def display_logo():
     colorama.init()  
     logo = """ 
-\035m[1;035mm          
+\033[1;96m          
                  
 ____________________________________________________________________________________
         ____                             _     _                                     
@@ -108,9 +111,9 @@ def main_menu():
     try:
         while True:
             display_logo()
-            border = "\033[93m+" + "="*70 + "+\033[0m"
-            content = "\033[93m║            ▌║█║▌│║▌│║▌║▌█║ \033[92mMain Menu\033[93m  ▌│║▌║▌│║║▌█║▌                  ║"
-            footer = " \033[92m            Join iPmartNetwork Telegram \035[34m@https://t.me/ipmartnetwork_gp\033[0m "
+            border = "\033[4;35m" + "="*70 + "+\033[0m"
+            content = "\033[36m       \033[92mMain Menu\033[36m            "
+            footer = " \035      Join iPmartNetwork Telegram \033[33m@iPmartNetwork_gp\033[0m "
 
             border_length = len(border) - 2
             centered_content = content.center(border_length)
@@ -124,15 +127,14 @@ def main_menu():
             print(border)
             print(footer)
             print(border)
-            print("1. \033[92mPrivate | Native IP\033[0m")
-            print("2. \033[93mHaproxy Simple tunnel | \033[92m IPV4 Tunnel   \033[93m| \033[96mRun on IRAN\033[0m")
-            print("3. \033[96mHaproxy Simple tunnel | \033[92m IPV6 Tunnel   \033[93m| \033[96mRun on IRAN\033[0m")
-            print("4. \033[93mHaproxy loadbalance  | \033[92m IPV6 Tunnel   \033[93m| \033[96mRun on IRAN\033[0m")
-            print("6. \033[97mHaproxy Loadbalance \033[93m| \033[92mNo Tunnel \033[93m| \033[96mRun on Kharej\033[0m")
-            print("7. \033[93mStop | Start | Restart Service\033[0m")
-            print("8. \033[91mUninstall\033[0m")
+            print("1. \033[96mPrivate | Native IP                  | \033[96mRun on IRAN & Kahrej\033[0m")
+            print("2. \033[36mHaproxy tunnel         \033[92m IPV4 Tunnel  \033[36m| \033[96mRun on IRAN\033[0m")
+            print("3. \033[96mHaproxy tunnel         \033[92m IPV6 Tunnel  \033[36m| \033[96mRun on IRAN\033[0m")
+            print("4. \033[36mHaproxy loadbalance    \033[92m IPV6 Tunnel  \033[36m| \033[96mRun on IRAN\033[0m")
+            print("6. \033[96mHaproxy Loadbalance \033[36m    \033[92mNo Tunnel \033[36m   | \033[96mRun on Kharej\033[0m")
+            print("7. \033[36mStop | Start | Restart Service\033[0m")
             print("0. Exit")
-            print("\033[93m╰─────────────────────────────────────────────────────────────────────╯\033[0m")
+            print("\033[36m╰─────────────────────────────────────────────────────────────────────╯\033[0m")
 
             choice = input("\033[5mEnter your choice Please: \033[0m")
             print("choice:", choice)
@@ -163,17 +165,17 @@ def main_menu():
         
 def remove_menu():
     os.system("clear")
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[93mUninstall Menu\033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
-    print('\033[93mChoose what to do:\033[0m')
+    print('\033[92m \033[0m')
+    print('\033[92m \033[92m)\033[0m')
+    print('\033[92m \033[36mUninstall Menu\033[0m')
+    print('\033[92m \033[36m══════════════════════════\033[0m')
+    print("\033[36m╭───────────────────────────────────────╮\033[0m")
+    print('\033[36mChoose what to do:\033[0m')
     print('1. \033[92mUninstall Haproxy\033[0m')
-    print('2. \033[93mUninstall Priavte IP\033[0m')
+    print('2. \033[36mUninstall Priavte IP\033[0m')
     print('3. \033[92mUninstall Native IP\033[0m')
     print('4. \033[94mback to the main menu\033[0m')
-    print("\033[93m╰───────────────────────────────────────╯\033[0m")
+    print("\033[36m╰───────────────────────────────────────╯\033[0m")
 
     while True:
         server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
@@ -195,14 +197,14 @@ def remove_menu():
 
 def remove_private():
     os.system("clear")
-    display_notification("\033[93mRemoving private IP addresses...\033[0m")
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    display_notification("\033[36mRemoving private IP addresses...\033[0m")
+    print("\033[36m╭───────────────────────────────────────╮\033[0m")
     
     try:
         if subprocess.call("test -f /etc/private.sh", shell=True) == 0:
             subprocess.run("rm /etc/private.sh", shell=True)
             
-        display_notification("\033[93mRemoving cronjob...\033[0m")
+        display_notification("\033[36mRemoving cronjob...\033[0m")
         subprocess.run("crontab -l | grep -v \"@reboot /bin/bash /etc/private.sh\" | crontab -", shell=True)
         
         subprocess.run("sudo rm /etc/ping_v6.sh", shell=True)
@@ -215,8 +217,8 @@ def remove_private():
         
         subprocess.run("systemctl daemon-reload", shell=True)
         
-        subprocess.run("ip link set dev azumi down > /dev/null", shell=True)
-        subprocess.run("ip tunnel del azumi > /dev/null", shell=True)
+        subprocess.run("ip link set dev iPmartNetwork down > /dev/null", shell=True)
+        subprocess.run("ip tunnel del iPmartNetwork > /dev/null", shell=True)
         
         print("Progress: ", end="")
         
@@ -239,8 +241,8 @@ def remove_private():
     
 def extra_uninstall():
     os.system("clear")
-    display_notification("\033[93mRemoving Extra IP addresses...\033[0m")
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    display_notification("\033[36mRemoving Extra IP addresses...\033[0m")
+    print("\033[36m╭───────────────────────────────────────╮\033[0m")
 
     try:
         interface = subprocess.check_output("ip route | awk '/default/ {print $5; exit}'", shell=True).decode().strip()
@@ -249,7 +251,7 @@ def extra_uninstall():
         for address in addresses:
             subprocess.run(f"ip addr del {address} dev {interface}", shell=True)
             
-        display_notification("\033[93mRemoving cronjob...\033[0m")
+        display_notification("\033[36mRemoving cronjob...\033[0m")
         subprocess.run("crontab -l | grep -v \"@reboot /bin/bash /etc/ipv6.sh\" | crontab -", shell=True)    
 
         time.sleep(1)
@@ -261,7 +263,7 @@ def extra_uninstall():
         
         subprocess.run("sudo rm /etc/ipv6.sh", shell=True)
         
-        display_notification("\033[93mRemoving Extra ip, Working in the background..\033[0m")
+        display_notification("\033[36mRemoving Extra ip, Working in the background..\033[0m")
         print("Progress: ", end="")
 
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
@@ -311,8 +313,8 @@ def frp_menu():
         display_error(f"Unsupported CPU architecture: {arch}")
         return
 
-    display_notification("\033[93mDownloading FRP in a sec...\033[0m")
-    display_notification("\033[93mPlease wait, updating...\033[0m")
+    display_notification("\033[36mDownloading FRP in a sec...\033[0m")
+    display_notification("\033[36mPlease wait, updating...\033[0m")
 
     subprocess.Popen('apt update &>/dev/null &', shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
@@ -322,8 +324,8 @@ def frp_menu():
 
     while apt_update_pid:
         clear()
-        display_notification("\033[93mPlease wait, updating...\033[0m")
-        print(f"Azumi is working in the background, timer: {seconds} seconds")
+        display_notification("\033[36mPlease wait, updating...\033[0m")
+        print(f"iPmartNetwork is working in the background, timer: {seconds} seconds")
         seconds += 1
         subprocess.call('sleep 1', shell=True)
         try:
@@ -349,16 +351,16 @@ def frp_menu():
     
 def restart_service():
     os.system("clear")
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[93mRestart Menu\033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
-    print('\033[93mChoose what to do:\033[0m')
+    print('\033[92m \033[0m')
+    print('\033[92m \033[92m\033[0m')
+    print('\033[92m \033[36mRestart Menu\033[0m')
+    print('\033[92m \033[36m══════════════════════════\033[0m')
+    print("\033[36m╭───────────────────────────────────────╮\033[0m")
+    print('\033[36mChoose what to do:\033[0m')
     print('1. \033[92mStart | Restart Service\033[0m')
     print('2. \033[91mStop Service\033[0m')
     print('3. \033[94mback to the main menu\033[0m')
-    print("\033[93m╰───────────────────────────────────────╯\033[0m")
+    print("\033[36m╰───────────────────────────────────────╯\033[0m")
 
     while True:
         server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
@@ -377,24 +379,24 @@ def restart_service():
             
 def restart_menu():
     os.system("clear")
-    display_notification("\033[93mRestarting Haproxy...\033[0m")
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    display_notification("\033[36mRestarting Haproxy...\033[0m")
+    print("\033[36m╭───────────────────────────────────────╮\033[0m")
     display_loading()
     os.system("sudo systemctl restart haproxy")   
     display_checkmark("\033[92mHaproxy restarted successfully!\033[0m") 
 
 def stop_menu():
     os.system("clear")
-    display_notification("\033[93mStopping Haproxy...\033[0m")
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    display_notification("\033[36mStopping Haproxy...\033[0m")
+    print("\033[36m╭───────────────────────────────────────╮\033[0m")
     display_loading()
     os.system("sudo systemctl stop haproxy")  
     display_checkmark("\033[92mHaproxy Stopped successfully!\033[0m")  
 
 def remove_haproxy():
     os.system("clear")
-    display_notification("\033[93mRemoving HAProxy...\033[0m")
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    display_notification("\033[36mRemoving HAProxy...\033[0m")
+    print("\033[36m╭───────────────────────────────────────╮\033[0m")
     display_loading()
     subprocess.run(["systemctl", "stop", "haproxy"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     subprocess.run(["systemctl", "disable", "haproxy"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -405,17 +407,17 @@ def remove_haproxy():
   ## later usage        
 def private_ip():
     os.system("clear")
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[93mPrivate | Native IP Menu\033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
-    print('\033[93mChoose what to do:\033[0m')
+    print('\033[92m \033[0m')
+    print('\033[92m \033[92m\033[0m')
+    print('\033[92m \033[36mPrivate | Native IP Menu\033[0m')
+    print('\033[92m \033[36m══════════════════════════\033[0m')
+    print("\033[36m╭───────────────────────────────────────╮\033[0m")
+    print('\033[36mChoose what to do:\033[0m')
     print('1. \033[96mExtra Native IP [ Kharej]\033[0m')
-    print('2. \033[92mKharej[Private IP]\033[0m')
-    print('3. \033[93mIRAN [Private IP]\033[0m')
+    print('2. \033[96mKharej[Private IP]\033[0m')
+    print('3. \033[36mIRAN [Private IP]\033[0m')
     print('4. \033[94mback to the main menu\033[0m')
-    print("\033[93m╰───────────────────────────────────────╯\033[0m")
+    print("\033[36m╰───────────────────────────────────────╯\033[0m")
 
     while True:
         server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
@@ -449,13 +451,13 @@ def add_cron_job():
         
 def run_ping():
     try:
-        subprocess.run(["ping", "-c", "2", "fd1d:fc98:b73e:b481::2"], check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["ping", "-c", "2", "fd92:af4f:07dc::2"], check=True, stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
         print(Fore.LIGHTRED_EX + "Pinging failed:", e, Style.RESET_ALL)
  
 def run_ping_iran():
     try:
-        subprocess.run(["ping", "-c", "2", "fd1d:fc98:b73e:b481::1"], check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["ping", "-c", "2", "fd92:af4f:07dc::1"], check=True, stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
         print(Fore.LIGHTRED_EX + "Pinging failed:", e, Style.RESET_ALL)
         
@@ -482,7 +484,7 @@ WantedBy=multi-user.target
     
     
 def display_kharej_ip(num_ips):
-    print("\033[93mCreated Private IP Addresses (Kharej):\033[0m")
+    print("\033[36mCreated Private IP Addresses (Kharej):\033[0m")
     for i in range(1, num_ips + 1):
         ip_suffix = hex(i)[2:]
         ip_addr = f"fd1d:fc98:b73e:b48{ip_suffix}::1"
@@ -491,7 +493,7 @@ def display_kharej_ip(num_ips):
         print("\033[92m" + "+---------------------------+" + "\033[0m")
         
 def display_iran_ip(num_ips):
-    print("\033[93mCreated Private IP Addresses (Iran):\033[0m")
+    print("\033[36mCreated Private IP Addresses (Iran):\033[0m")
     for i in range(1, num_ips + 1):
         ip_suffix = hex(i)[2:]
         ip_addr = f"fd1d:fc98:b73e:b48{ip_suffix}::2"
@@ -501,51 +503,51 @@ def display_iran_ip(num_ips):
             
 def kharej_private_menu():
     os.system("clear")
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[93mConfiguring Kharej server\033[0m')
-    print('\033[92m "-"\033[93m═══════════════════════════\033[0m')
+    print('\033[92m \033[0m')
+    print('\033[92m \033[92m)\033[0m')
+    print('\033[92m \033[36mConfiguring Kharej server\033[0m')
+    print('\033[92m \033[36m═══════════════════════════\033[0m')
     display_logo2()
-    print("\033[93m╭────────────────────────────────────────────────────────────────────────────────────╮")
+    print("\033[36m╭────────────────────────────────────────────────────────────────────────────────────╮")
     print("\033[92m  Please make sure to remove any private IPs that you have created before proceeding")
-    print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mAdding private IP addresses for Kharej server...\033[0m")
+    print("\033[36m╰────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
+    display_notification("\033[36mAdding private IP addresses for Kharej server...\033[0m")
 
     if os.path.isfile("/etc/private.sh"):
         os.remove("/etc/private.sh")
 
-    print("\033[93m╭─────────────────────────────────────────────────────────╮\033[0m")
-    local_ip = input("\033[93mEnter Kharej IPV4 address: \033[0m")
-    remote_ip = input("\033[93mEnter IRAN IPV4 address: \033[0m")
+    print("\033[36m╭─────────────────────────────────────────────────────────╮\033[0m")
+    local_ip = input("\033[36mEnter Kharej IPV4 address: \033[0m")
+    remote_ip = input("\033[36mEnter IRAN IPV4 address: \033[0m")
 
-    subprocess.run(["ip", "tunnel", "add", "azumi", "mode", "sit", "remote", remote_ip, "local", local_ip, "ttl", "255"], stdout=subprocess.DEVNULL)
-    subprocess.run(["ip", "link", "set", "dev", "azumi", "up"], stdout=subprocess.DEVNULL)
+    subprocess.run(["ip", "tunnel", "add", "iPmartNetwork", "mode", "sit", "remote", remote_ip, "local", local_ip, "ttl", "255"], stdout=subprocess.DEVNULL)
+    subprocess.run(["ip", "link", "set", "dev", "iPmartNetwork", "up"], stdout=subprocess.DEVNULL)
 
-    initial_ip = "fd1d:fc98:b73e:b481::1/64"
-    subprocess.run(["ip", "addr", "add", initial_ip, "dev", "azumi"], stdout=subprocess.DEVNULL)
+    initial_ip = "fd92:af4f:07dc::1/64"
+    subprocess.run(["ip", "addr", "add", initial_ip, "dev", "iPmartNetwork"], stdout=subprocess.DEVNULL)
 
-    num_ips = int(input("\033[93mHow many additional private IPs do you need? \033[0m"))
-    print("\033[93m╰─────────────────────────────────────────────────────────╯\033[0m")
+    num_ips = int(input("\033[36mHow many additional private IPs do you need? \033[0m"))
+    print("\033[36m╰─────────────────────────────────────────────────────────╯\033[0m")
 
     for i in range(1, num_ips + 1):
         ip_suffix = hex(i)[2:]
         ip_addr = f"fd1d:fc98:b73e:b48{ip_suffix}::1/64"
 
-        result = subprocess.run(["ip", "addr", "show", "dev", "azumi"], capture_output=True, text=True)
+        result = subprocess.run(["ip", "addr", "show", "dev", "iPmartNetwork"], capture_output=True, text=True)
         if ip_addr in result.stdout:
             print(f"IP address {ip_addr} already exists. Skipping...")
         else:
-            subprocess.run(["ip", "addr", "add", ip_addr, "dev", "azumi"], stdout=subprocess.DEVNULL)
+            subprocess.run(["ip", "addr", "add", ip_addr, "dev", "iPmartNetwork"], stdout=subprocess.DEVNULL)
 
-    display_notification("\033[93mAdding commands to private.sh...\033[0m")
+    display_notification("\033[36mAdding commands to private.sh...\033[0m")
     with open("/etc/private.sh", "w") as f:
-        f.write(f"ip tunnel add azumi mode sit remote {remote_ip} local {local_ip} ttl 255\n")
-        f.write("ip link set dev azumi up\n")
-        f.write("ip addr add fd1d:fc98:b73e:b481::1/64 dev azumi\n")
+        f.write(f"ip tunnel add iPmartNetwork mode sit remote {remote_ip} local {local_ip} ttl 255\n")
+        f.write("ip link set dev iPmartNetwork up\n")
+        f.write("ip addr add fd92:af4f:07dc::1/64 dev iPmartNetwork\n")
         for i in range(1, num_ips + 1):
             ip_suffix = hex(i)[2:]
             ip_addr = f"fd1d:fc98:b73e:b48{ip_suffix}::1/64"
-            f.write(f"ip addr add {ip_addr} dev azumi\n")
+            f.write(f"ip addr add {ip_addr} dev iPmartNetwork\n")
 
     display_checkmark("\033[92mPrivate ip added successfully!\033[0m")
 
@@ -562,7 +564,7 @@ def kharej_private_menu():
     script_content1 = '''#!/bin/bash
 
 # IPv6 address
-ip_address="fd1d:fc98:b73e:b481::2"
+ip_address="fd92:af4f:07dc::2"
 
 # maximum number
 max_pings=4
@@ -600,35 +602,35 @@ done
 
 def iran_private_menu():
     os.system("clear")
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[93mConfiguring Iran server\033[0m')
-    print('\033[92m "-"\033[93m═══════════════════════════\033[0m')
+    print('\033[92m \033[0m')
+    print('\033[92m \033[92m\033[0m')
+    print('\033[92m \033[36mConfiguring Iran server\033[0m')
+    print('\033[92m \033[36m═══════════════════════════\033[0m')
     display_logo2()
-    print("\033[93m╭────────────────────────────────────────────────────────────────────────────────────╮")
+    print("\033[36m╭────────────────────────────────────────────────────────────────────────────────────╮")
     print("\033[92m  Please make sure to remove any private IPs that you have created before proceeding")
-    print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mAdding private IP addresses for Iran server...\033[0m")
+    print("\033[36m╰────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
+    display_notification("\033[36mAdding private IP addresses for Iran server...\033[0m")
     
     if os.path.isfile("/etc/private.sh"):
         os.remove("/etc/private.sh")
     
 
-    print("\033[93m╭─────────────────────────────────────────────────────────╮\033[0m")
-    local_ip = input("\033[93mEnter IRAN IPV4 address: \033[0m")
-    remote_ip = input("\033[93mEnter Kharej IPV4 address: \033[0m")
+    print("\033[36m╭─────────────────────────────────────────────────────────╮\033[0m")
+    local_ip = input("\033[36mEnter IRAN IPV4 address: \033[0m")
+    remote_ip = input("\033[36mEnter Kharej IPV4 address: \033[0m")
     
     
-    subprocess.run(["ip", "tunnel", "add", "azumi", "mode", "sit", "remote", remote_ip, "local", local_ip, "ttl", "255"], stdout=subprocess.DEVNULL)
-    subprocess.run(["ip", "link", "set", "dev", "azumi", "up"], stdout=subprocess.DEVNULL)
+    subprocess.run(["ip", "tunnel", "add", "iPmartNetwork", "mode", "sit", "remote", remote_ip, "local", local_ip, "ttl", "255"], stdout=subprocess.DEVNULL)
+    subprocess.run(["ip", "link", "set", "dev", "iPmartNetwork", "up"], stdout=subprocess.DEVNULL)
     
     
-    initial_ip = "fd1d:fc98:b73e:b481::2/64"
-    subprocess.run(["ip", "addr", "add", initial_ip, "dev", "azumi"], stdout=subprocess.DEVNULL)
+    initial_ip = "fd92:af4f:07dc::2/64"
+    subprocess.run(["ip", "addr", "add", initial_ip, "dev", "iPmartNetwork"], stdout=subprocess.DEVNULL)
     
    
-    num_ips = int(input("\033[93mHow many additional private IPs do you need? \033[0m"))
-    print("\033[93m╰─────────────────────────────────────────────────────────╯\033[0m")
+    num_ips = int(input("\033[36mHow many additional private IPs do you need? \033[0m"))
+    print("\033[36m╰─────────────────────────────────────────────────────────╯\033[0m")
     
     
     for i in range(1, num_ips + 1):
@@ -636,22 +638,22 @@ def iran_private_menu():
         ip_addr = f"fd1d:fc98:b73e:b48{ip_suffix}::2/64"
         
 
-        result = subprocess.run(["ip", "addr", "show", "dev", "azumi"], capture_output=True, text=True)
+        result = subprocess.run(["ip", "addr", "show", "dev", "iPmartNetwork"], capture_output=True, text=True)
         if ip_addr in result.stdout:
             print(f"IP address {ip_addr} already exists. Skipping...")
         else:
-            subprocess.run(["ip", "addr", "add", ip_addr, "dev", "azumi"], stdout=subprocess.DEVNULL)
+            subprocess.run(["ip", "addr", "add", ip_addr, "dev", "iPmartNetwork"], stdout=subprocess.DEVNULL)
     
 
-    display_notification("\033[93mAdding commands to private.sh...\033[0m")
+    display_notification("\033[36mAdding commands to private.sh...\033[0m")
     with open("/etc/private.sh", "w") as f:
-        f.write(f"ip tunnel add azumi mode sit remote {remote_ip} local {local_ip} ttl 255\n")
-        f.write("ip link set dev azumi up\n")
-        f.write("ip addr add fd1d:fc98:b73e:b481::2/64 dev azumi\n")
+        f.write(f"ip tunnel add iPmartNetwork mode sit remote {remote_ip} local {local_ip} ttl 255\n")
+        f.write("ip link set dev iPmartNetwork up\n")
+        f.write("ip addr add fd92:af4f:07dc::2/64 dev iPmartNetwork\n")
         for i in range(1, num_ips + 1):
             ip_suffix = hex(i)[2:]
             ip_addr = f"fd1d:fc98:b73e:b48{ip_suffix}::2/64"
-            f.write(f"ip addr add {ip_addr} dev azumi\n")
+            f.write(f"ip addr add {ip_addr} dev iPmartNetwork\n")
     
     display_checkmark("\033[92mPrivate ip added successfully!\033[0m")
     
@@ -673,7 +675,7 @@ def iran_private_menu():
     script_content = '''#!/bin/bash
 
 # IPv6 address
-ip_address="fd1d:fc98:b73e:b481::2"
+ip_address="fd92:af4f:07dc::2"
 
 # maximum number
 max_pings=4
@@ -712,17 +714,17 @@ done
 
 def Native_menu():
     subprocess.run("clear", shell=True)
-    print("\033[92m ^ ^\033[0m")
-    print("\033[92m(\033[91mO,O\033[92m)\033[0m")
-    print("\033[92m(   ) \033[93mNative IP Menu\033[0m")
-    print("\033[92m \"-\"\033[93m═════════════════════\033[0m")
+    print("\033[92m \033[0m")
+    print('\033[92m \033[92m\033[0m')
+    print("\033[92m \033[36mNative IP Menu\033[0m")
+    print("\033[92m \033[36m═════════════════════\033[0m")
     display_logo2()
-    print("\033[93m.-------------------------------------------------------------------------------------------------------.\033[0m")
-    print("\033[93m| \033[92mIf it didn't work, please uninstall it and add extra IP manually  \033[0m")
-    print("\033[93m|\033[0m  If you don't have native IPv6, please use a private IP instead.                                             \033[0m")
-    print("\033[93m'-------------------------------------------------------------------------------------------------------'\033[0m")
-    display_notification("\033[93mAdding extra Native IPv6 [Kharej]...\033[0m")
-    print("\033[93m╭──────────────────────────────────────────────────────────╮\033[0m")
+    print("\033[36m.-------------------------------------------------------------------------------------------------------.\033[0m")
+    print("\033[36m| \033[92mIf it didn't work, please uninstall it and add extra IP manually  \033[0m")
+    print("\033[36m|\033[0m  If you don't have native IPv6, please use a private IP instead.                                             \033[0m")
+    print("\033[36m'-------------------------------------------------------------------------------------------------------'\033[0m")
+    display_notification("\033[36mAdding extra Native IPv6 [Kharej]...\033[0m")
+    print("\033[36m╭──────────────────────────────────────────────────────────╮\033[0m")
 
     try:
         interface = subprocess.run("ip route | awk '/default/ {print $5; exit}'", shell=True, capture_output=True, text=True).stdout.strip()
@@ -732,7 +734,7 @@ def Native_menu():
         for address in ipv6_addresses:
             print(address)
 
-        confirm = input("\033[93mAre these your current IPv6 addresses? (y/n): \033[0m")
+        confirm = input("\033[36mAre these your current IPv6 addresses? (y/n): \033[0m")
         if confirm.lower() != "y":
             display_error("\033[91mAborted. Please manually configure the correct IPv6 addresses.\033[0m")
             return
@@ -762,7 +764,7 @@ def Native_menu():
 
         subprocess.run("crontab -l | grep -v '/etc/ipv6.sh' | crontab -", shell=True)
 
-        display_notification("\033[93mAdding cronjob for the server..\033[0m")
+        display_notification("\033[36mAdding cronjob for the server..\033[0m")
         subprocess.run("(crontab -l 2>/dev/null; echo \"@reboot /bin/bash /etc/ipv6.sh\") | crontab -", shell=True)
 
         display_checkmark("\033[92mIPv6 addresses added successfully!\033[0m")
@@ -841,9 +843,9 @@ defaults
 frontend vless_frontend
     bind *:{iran_port}
     mode tcp
-    default_backend azumi_backend
+    default_backend iPmartNetwork_backend
 
-backend azumi_backend
+backend iPmartNetwork_backend
     mode tcp
     balance roundrobin
     option tcp-check
@@ -852,7 +854,7 @@ backend azumi_backend
     for i in range(len(ipv6_addresses)):
         ipv6_address = ipv6_addresses[i]
         ipv6_port = ipv6_ports[i]
-        config += f"    server azumi{i+1} {ipv6_address}:{ipv6_port} check\n"
+        config += f"    server iPmartNetwork{i+1} {ipv6_address}:{ipv6_port} check\n"
     return config
     
 def haproxy2_tunnel(ipv6_addresses, ipv6_ports, iran_ports):
@@ -898,7 +900,7 @@ defaults
         ipv6_port = ipv6_ports[i]
         iran_port = iran_ports[i]
         frontend_name = f'vless{i+1}_frontend'
-        backend_name = f'azumi{i+1}_backend'
+        backend_name = f'iPmartNetwork{i+1}_backend'
         config += f'''
 frontend {frontend_name}
     bind *:{ipv6_port}
@@ -907,77 +909,77 @@ frontend {frontend_name}
 
 backend {backend_name}
     mode tcp
-    server azumi{i+1} {ipv6_address}:{ipv6_port}
+    server iPmartNetwork{i+1} {ipv6_address}:{ipv6_port}
 '''
     return config
     
 def haproxy_menu():
     subprocess.run("clear", shell=True)
-    print("\033[92m ^ ^\033[0m")
-    print("\033[92m(\033[91mO,O\033[92m)\033[0m")
-    print("\033[92m(   ) \033[93mHaproxy Loadbalance & IPV6 Tunnel Menu\033[0m")
-    print("\033[92m \"-\"\033[93m════════════════════════════════════\033[0m")
+    print("\033[92m \033[0m")
+    print('\033[92m \033[92m\033[0m')
+    print("\033[92m \033[36mHaproxy Loadbalance & IPV6 Tunnel Menu\033[0m")
+    print("\033[92m \033[36m════════════════════════════════════\033[0m")
     display_logo2()
-    print("\033[93m.-------------------------------------------------------------------------------------------------------.\033[0m")
-    print("\033[93m| \033[92mYou can use private or native ipv6 as for kharej ipv6 addresses  \033[0m")
-    print("\033[93m| \033[93mConfigure Haproxy on iran server  \033[0m")
+    print("\033[36m.-------------------------------------------------------------------------------------------------------.\033[0m")
+    print("\033[36m| \033[92mYou can use private or native ipv6 as for kharej ipv6 addresses  \033[0m")
+    print("\033[36m| \033[36mConfigure Haproxy on iran server  \033[0m")
     print("\033[92m| \033[92mYou can enter different Kharej IPV6 addresses with different port and one single port for iran  \033[0m")
-    print("\033[93m| \033[93mYour V2rayng address : IPV4-IRAN : Iran-port [eg : 443]  \033[0m")
-    print("\033[93m'-------------------------------------------------------------------------------------------------------'\033[0m")
-    display_notification("\033[93mConfigruing Haproxy...\033[0m")
+    print("\033[36m| \033[36mYour V2rayng address : IPV4-IRAN : Iran-port [eg : 443]  \033[0m")
+    print("\033[36m'-------------------------------------------------------------------------------------------------------'\033[0m")
+    display_notification("\033[36mConfigruing Haproxy...\033[0m")
     install_haproxy()
-    print("\033[93m╭──────────────────────────────────────────────────────────╮\033[0m")
-    num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej\033[93m IPv6 addresses:\033[0m "))
+    print("\033[36m╭──────────────────────────────────────────────────────────╮\033[0m")
+    num_ipv6 = int(input("\033[36mEnter the number of \033[92mKharej\033[36m IPv6 addresses:\033[0m "))
     ipv6_addresses = []
     ipv6_ports = []
 
     for i in range(num_ipv6):
-        address = input("\033[93m" + f"Enter \033[92mKharej\033[93m IPv6 address \033[92m{i+1}: " + "\033[0m")
-        port = input("\033[93m" + f"Enter the port for \033[92mKharej\033[93m IPv6 address \033[92m{i+1}: " + "\033[0m")
+        address = input("\033[36m" + f"Enter \033[92mKharej\033[36m IPv6 address \033[92m{i+1}: " + "\033[0m")
+        port = input("\033[36m" + f"Enter the port for \033[92mKharej\033[36m IPv6 address \033[92m{i+1}: " + "\033[0m")
         ipv6_addresses.append(address)
         ipv6_ports.append(port)
 
-    iran_port = input("\033[93m" + "Enter the port for \033[92mIran\033[0m" + " Server: ")
+    iran_port = input("\033[36m" + "Enter the port for \033[92mIran\033[0m" + " Server: ")
     config = haproxy_tunnel(ipv6_addresses, ipv6_ports, iran_port)
 
 
     save_haproxy(config)
     sleep(1)
     restart_haproxy()
-    print("\033[93m╰─────────────────────────────────────────────────────────╯\033[0m")
+    print("\033[36m╰─────────────────────────────────────────────────────────╯\033[0m")
 
     display_checkmark("\033[92mHAProxy configuration file generated!\033[0m")
 
     current_ipv4 = get_ipv4()
 
     if current_ipv4:
-        print("\033[93m╭─────────────────────────────────────────────────────────╮\033[0m")
-        print(f"\033[93m| V2rayng Address: {current_ipv4} : {iran_port}  \033[0m")
-        print("\033[93m╰─────────────────────────────────────────────────────────╯\033[0m")
+        print("\033[36m╭─────────────────────────────────────────────────────────╮\033[0m")
+        print(f"\033[36m| V2rayng Address: {current_ipv4} : {iran_port}  \033[0m")
+        print("\033[36m╰─────────────────────────────────────────────────────────╯\033[0m")
     else:
-        print("\033[93mUnable to retrieve server's IPv4 address.\033[0m")
+        print("\033[36mUnable to retrieve server's IPv4 address.\033[0m")
 
 def haproxy3_menu():
     subprocess.run("clear", shell=True)
-    print("\033[92m ^ ^\033[0m")
-    print("\033[92m(\033[91mO,O\033[92m)\033[0m")
-    print("\033[92m(   ) \033[93mHaproxy Simple \033[92mIPV6 Tunnel\033[93m Menu\033[0m")
-    print("\033[92m \"-\"\033[93m════════════════════════════════════\033[0m")
-    display_notification("\033[93mConfiguring Haproxy...\033[0m")
+    print("\033[92m \033[0m")
+    print('\033[92m \033[92m\033[0m')
+    print("\033[92m \033[36mFredomTunnel \033[92mIPV6 Tunnel\033[36m Menu\033[0m")
+    print("\033[92m \033[36m════════════════════════════════════\033[0m")
+    display_notification("\033[36mConfiguring Haproxy...\033[0m")
     install_haproxy()
-    print("\033[93m╭─────────────────────────────────────────────────────────╮\033[0m")
-    num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej \033[96mConfigs\033[93m:\033[0m "))
-    ipv4_address = input("\033[93mEnter \033[92mKharej\033[93m IPV6 address: " + "\033[0m")
+    print("\033[36m╭─────────────────────────────────────────────────────────╮\033[0m")
+    num_ipv6 = int(input("\033[36mEnter the number of \033[92mKharej \033[96mConfigs\033[36m:\033[0m "))
+    ipv4_address = input("\033[36mEnter \033[92mKharej\033[36m IPV6 address: " + "\033[0m")
     ipv6_ports = []
     iran_ports = []
 
     for i in range(num_ipv6):
-        print("\033[93m──────────────────────────────\033[0m")
+        print("\033[36m──────────────────────────────\033[0m")
         print(f"\033[92m      --- Config\033[96m {i+1}\033[92m ---\033[0m")
-        print("\033[93m──────────────────────────────\033[0m")
-        port = input("\033[93m" + f"Enter\033[92m Kharej\033[93m Config \033[92m{i+1}\033[93m port: " + "\033[0m")
+        print("\033[36m──────────────────────────────\033[0m")
+        port = input("\033[36m" + f"Enter\033[92m Kharej\033[36m Config \033[92m{i+1}\033[36m port: " + "\033[0m")
         ipv6_ports.append(port)
-        iran_port = input(f"\033[93mEnter \033[92mhaproxy \033[93mport \033[96mConfig \033[92m{i+1}\033[93m: \033[0m")
+        iran_port = input(f"\033[36mEnter \033[92mhaproxy \033[36mport \033[96mConfig \033[92m{i+1}\033[36m: \033[0m")
         iran_ports.append(iran_port)
 
     ipv6_addresses = [ipv4_address] * num_ipv6
@@ -987,42 +989,42 @@ def haproxy3_menu():
     save_haproxy(config)
     sleep(1)
     restart_haproxy()
-    print("\033[93m╰─────────────────────────────────────────────────────────╯\033[0m")
+    print("\033[36m╰─────────────────────────────────────────────────────────╯\033[0m")
 
     display_checkmark("\033[92mHAProxy configuration file generated!\033[0m")
 
     current_ipv4 = get_ipv4()
 
     if current_ipv4:
-        print("\033[93m╭─────────────────────────────────────────────────────────╮\033[0m")
+        print("\033[36m╭─────────────────────────────────────────────────────────╮\033[0m")
         for i in range(num_ipv6):
-            print(f"\033[93m| V2rayng Address {i+1}: {current_ipv4} : {iran_ports[i]}  \033[0m")
-        print("\033[93m╰─────────────────────────────────────────────────────────╯\033[0m")
+            print(f"\033[36m| V2rayng Address {i+1}: {current_ipv4} : {iran_ports[i]}  \033[0m")
+        print("\033[36m╰─────────────────────────────────────────────────────────╯\033[0m")
     else:
-        print("\033[93mUnable to retrieve server's IPv4 address.\033[0m")
+        print("\033[36mUnable to retrieve server's IPv4 address.\033[0m")
         
 
 def haproxy2_menu():
     subprocess.run("clear", shell=True)
-    print("\033[92m ^ ^\033[0m")
-    print("\033[92m(\033[91mO,O\033[92m)\033[0m")
-    print("\033[92m(   ) \033[93mHaproxy Simple \033[92mIPV4 Tunnel\033[93m Menu\033[0m")
-    print("\033[92m \"-\"\033[93m════════════════════════════════════\033[0m")
-    display_notification("\033[93mConfiguring Haproxy...\033[0m")
+    print("\033[92m \033[0m")
+    print('\033[92m \033[92m\033[0m')
+    print("\033[92m \033[36mFredomTunnel \033[92mIPV4 Tunnel\033[36m Menu\033[0m")
+    print("\033[92m \033[36m════════════════════════════════════\033[0m")
+    display_notification("\033[36mConfiguring Haproxy...\033[0m")
     install_haproxy()
-    print("\033[93m╭─────────────────────────────────────────────────────────╮\033[0m")
-    num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej \033[96mConfigs\033[93m:\033[0m "))
-    ipv4_address = input("\033[93mEnter \033[92mKharej\033[93m IPV4 address: " + "\033[0m")
+    print("\033[36m╭─────────────────────────────────────────────────────────╮\033[0m")
+    num_ipv6 = int(input("\033[36mEnter the number of \033[92mKharej \033[96mConfigs\033[36m:\033[0m "))
+    ipv4_address = input("\033[36mEnter \033[92mKharej\033[36m IPV4 address: " + "\033[0m")
     ipv6_ports = []
     iran_ports = []
 
     for i in range(num_ipv6):
-        print("\033[93m──────────────────────────────\033[0m")
+        print("\033[36m──────────────────────────────\033[0m")
         print(f"\033[92m      --- Config\033[96m {i+1}\033[92m ---\033[0m")
-        print("\033[93m──────────────────────────────\033[0m")
-        port = input("\033[93m" + f"Enter\033[92m Kharej\033[93m Config \033[92m{i+1}\033[93m port: " + "\033[0m")
+        print("\033[36m──────────────────────────────\033[0m")
+        port = input("\033[36m" + f"Enter\033[92m Kharej\033[36m Config \033[92m{i+1}\033[36m port: " + "\033[0m")
         ipv6_ports.append(port)
-        iran_port = input(f"\033[93mEnter \033[92mhaproxy \033[93mport \033[96mConfig \033[92m{i+1}\033[93m: \033[0m")
+        iran_port = input(f"\033[36mEnter \033[92mhaproxy \033[36mport \033[96mConfig \033[92m{i+1}\033[36m: \033[0m")
         iran_ports.append(iran_port)
 
     ipv6_addresses = [ipv4_address] * num_ipv6
@@ -1032,65 +1034,65 @@ def haproxy2_menu():
     save_haproxy(config)
     sleep(1)
     restart_haproxy()
-    print("\033[93m╰─────────────────────────────────────────────────────────╯\033[0m")
+    print("\033[36m╰─────────────────────────────────────────────────────────╯\033[0m")
 
     display_checkmark("\033[92mHAProxy configuration file generated!\033[0m")
 
     current_ipv4 = get_ipv4()
 
     if current_ipv4:
-        print("\033[93m╭─────────────────────────────────────────────────────────╮\033[0m")
+        print("\033[36m╭─────────────────────────────────────────────────────────╮\033[0m")
         for i in range(num_ipv6):
-            print(f"\033[93m| V2rayng Address {i+1}: {current_ipv4} : {iran_ports[i]}  \033[0m")
-        print("\033[93m╰─────────────────────────────────────────────────────────╯\033[0m")
+            print(f"\033[36m| V2rayng Address {i+1}: {current_ipv4} : {iran_ports[i]}  \033[0m")
+        print("\033[36m╰─────────────────────────────────────────────────────────╯\033[0m")
     else:
-        print("\033[93mUnable to retrieve server's IPv4 address.\033[0m")
+        print("\033[36mUnable to retrieve server's IPv4 address.\033[0m")
         
 def haproxy_kharej():
     subprocess.run("clear", shell=True)
-    print("\033[92m ^ ^\033[0m")
-    print("\033[92m(\033[91mO,O\033[92m)\033[0m")
-    print("\033[92m(   ) \033[93mHaproxy Loadbalance | No Tunnel Menu\033[0m")
-    print("\033[92m \"-\"\033[93m════════════════════════════════════\033[0m")
+    print("\033[92m \033[0m")
+    print('\033[92m \033[92m\033[0m')
+    print("\033[92m \033[36mHaproxy Loadbalance | No Tunnel Menu\033[0m")
+    print("\033[92m \033[36m════════════════════════════════════\033[0m")
     display_logo2()
-    print("\033[93m.-------------------------------------------------------------------------------------------------------.\033[0m")
-    print("\033[93m| \033[92mYou can use private or native ipv6 as for kharej ipv6 addresses  \033[0m")
-    print("\033[93m| \033[93mConfigure Haproxy on Kahrej server since we don't use tunnel for this purpose  \033[0m")
+    print("\033[36m.-------------------------------------------------------------------------------------------------------.\033[0m")
+    print("\033[36m| \033[92mYou can use private or native ipv6 as for kharej ipv6 addresses  \033[0m")
+    print("\033[36m| \033[36mConfigure Haproxy on Kahrej server since we don't use tunnel for this purpose  \033[0m")
     print("\033[92m| \033[92mYou can enter different Kharej IPV6 addresses with different port  \033[0m")
-    print("\033[93m| \033[93mYour V2rayng address : IPV4-Kharej : Loadbalance-port [eg : 443]  \033[0m")
-    print("\033[93m'-------------------------------------------------------------------------------------------------------'\033[0m")
-    display_notification("\033[93mConfigruing Haproxy...\033[0m")
+    print("\033[36m| \033[36mYour V2rayng address : IPV4-Kharej : Loadbalance-port [eg : 443]  \033[0m")
+    print("\033[36m'-------------------------------------------------------------------------------------------------------'\033[0m")
+    display_notification("\033[36mConfigruing Haproxy...\033[0m")
     install_haproxy()
-    print("\033[93m╭──────────────────────────────────────────────────────────╮\033[0m")
-    num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej\033[93m IPv6 addresses:\033[0m "))
+    print("\033[36m╭──────────────────────────────────────────────────────────╮\033[0m")
+    num_ipv6 = int(input("\033[36mEnter the number of \033[92mKharej\033[36m IPv6 addresses:\033[0m "))
     ipv6_addresses = []
     ipv6_ports = []
 
     for i in range(num_ipv6):
-        address = input("\033[93m" + f"Enter \033[92mKharej\033[93m IPv6 address \033[92m{i+1}: " + "\033[0m")
-        port = input("\033[93m" + f"Enter the port for \033[92mKharej\033[93m IPv6 address \033[92m{i+1}: " + "\033[0m")
+        address = input("\033[36m" + f"Enter \033[92mKharej\033[36m IPv6 address \033[92m{i+1}: " + "\033[0m")
+        port = input("\033[36m" + f"Enter the port for \033[92mKharej\033[36m IPv6 address \033[92m{i+1}: " + "\033[0m")
         ipv6_addresses.append(address)
         ipv6_ports.append(port)
 
-    iran_port = input("\033[93m" + "Enter the port for \033[92mLoadbalancer:\033[0m")
+    iran_port = input("\033[36m" + "Enter the port for \033[92mLoadbalancer:\033[0m")
     config = haproxy_tunnel(ipv6_addresses, ipv6_ports, iran_port)
 
 
     save_haproxy(config)
     sleep(1)
     restart_haproxy()
-    print("\033[93m╰─────────────────────────────────────────────────────────╯\033[0m")
+    print("\033[36m╰─────────────────────────────────────────────────────────╯\033[0m")
 
     display_checkmark("\033[92mHAProxy configuration file generated!\033[0m")
 
     current_ipv4 = get_ipv4()
 
     if current_ipv4:
-        print("\033[93m╭─────────────────────────────────────────────────────────╮\033[0m")
-        print(f"\033[93m| V2rayng Address: {current_ipv4} : {iran_port}  \033[0m")
-        print("\033[93m╰─────────────────────────────────────────────────────────╯\033[0m")
+        print("\033[36m╭─────────────────────────────────────────────────────────╮\033[0m")
+        print(f"\033[36m| V2rayng Address: {current_ipv4} : {iran_port}  \033[0m")
+        print("\033[36m╰─────────────────────────────────────────────────────────╯\033[0m")
     else:
-        print("\033[93mUnable to retrieve server's IPv4 address.\033[0m")    
+        print("\033[36mUnable to retrieve server's IPv4 address.\033[0m")    
            
     
 
