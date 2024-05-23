@@ -451,13 +451,13 @@ def add_cron_job():
         
 def run_ping():
     try:
-        subprocess.run(["ping", "-c", "2", "fd92:af4f:07dc::2"], check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["ping", "-c", "2", "fd1d:fc98:b73e:b481::2"], check=True, stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
         print(Fore.LIGHTRED_EX + "Pinging failed:", e, Style.RESET_ALL)
  
 def run_ping_iran():
     try:
-        subprocess.run(["ping", "-c", "2", "fd92:af4f:07dc::1"], check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["ping", "-c", "2", "fd1d:fc98:b73e:b481::1"], check=True, stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
         print(Fore.LIGHTRED_EX + "Pinging failed:", e, Style.RESET_ALL)
         
