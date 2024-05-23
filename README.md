@@ -37,7 +37,7 @@
 
 
 ```
-apt update -y && sudo apt install python3 -y && apt install pip -y &&  pip install colorama && pip install netifaces && apt install curl -y && python3 <(curl -Ls https://raw.githubusercontent.com/iPmartNetwork/FredonTunnel/main/FreedomTunnel.py --ipv4)
+apt update -y && sudo apt install python3 -y && apt install pip -y &&  pip install colorama && pip install netifaces && apt install curl -y && python3 <(curl -Ls https://raw.githubusercontent.com/iPmartNetwork/FreedonTunnel/main/FreedomTunnel.py --ipv4)
 ```
 
 
