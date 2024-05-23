@@ -1,8 +1,6 @@
-
 #
 # Haproxy loadbalance Tunnel Configuration Script
-# Author: github.com/Azumi67
-#
+# Author: github.com/iPmartNetwork
 # This script is designed to simplify the installation and configuration of Haprxy.
 #
 # Supported operating systems: Ubuntu 20, Debian 12
