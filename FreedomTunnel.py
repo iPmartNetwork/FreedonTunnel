@@ -504,7 +504,7 @@ def display_iran_ip(num_ips):
 def kharej_private_menu():
     os.system("clear")
     print('\033[92m \033[0m')
-    print('\033[92m \033[92m)\033[0m')
+    print('\033[92m \033[92m\033[0m')
     print('\033[92m \033[36mConfiguring Kharej server\033[0m')
     print('\033[92m \033[36m═══════════════════════════\033[0m')
     display_logo2()
