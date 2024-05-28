@@ -152,7 +152,7 @@ def main_menu():
                 restart_service()
             elif choice == '7':
                 remove_menu()
-            elif choice == '0':
+            elif choice == '0 ;;':
                 print("Exiting...")
                 break
             else:
