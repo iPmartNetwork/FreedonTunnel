@@ -4,7 +4,7 @@
 </picture>
   </p> 
 <p align="center">
-<h1 align="center"/>FredonTunnel</h1>
+<h1 align="center"/>FreedonTunnel</h1>
 <h6 align="center">تانل بر پاییه پورت فوروارد و رد کردن دیتا از میان های پروکسی <h6>
 </p>
 
